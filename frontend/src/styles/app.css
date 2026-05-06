@@ -1,0 +1,146 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --ink: #18202a;
+  --muted: #5d6b7a;
+  --line: #d9e0e8;
+  --good: #16794a;
+  --bad: #b63b29;
+  --idle: #6a7786;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+h1, h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.lede {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.status-badge {
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  text-transform: capitalize;
+}
+
+.status-connected {
+  color: var(--good);
+}
+
+.status-error, .status-closed {
+  color: var(--bad);
+}
+
+.status-idle {
+  color: var(--idle);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.stream-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #edf1f5;
+}
+
+.placeholder {
+  min-height: 240px;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  border-radius: 10px;
+  border: 1px dashed var(--line);
+  background: #fafbfd;
+}
+
+.roi-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.roi-grid div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.roi-grid dt {
+  color: var(--muted);
+}
+
+.roi-grid dd {
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .header {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
