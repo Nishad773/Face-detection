@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-import mediapipe as mp
 import numpy as np
 from PIL import Image, ImageDraw
 
@@ -18,6 +17,8 @@ class FaceProcessingResult:
 
 class FaceDetectionService:
     def __init__(self, min_detection_confidence: float = 0.5) -> None:
+        import mediapipe as mp
+
         self._detector = mp.solutions.face_detection.FaceDetection(
             model_selection=0,
             min_detection_confidence=min_detection_confidence,
