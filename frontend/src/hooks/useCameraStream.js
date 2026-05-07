@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
-const INGEST_WS_URL = import.meta.env.VITE_WS_INGEST_URL ?? "ws://localhost:8000/api/v1/ws/ingest";
+import { INGEST_WS_URL } from "../config";
 
 export function useCameraStream() {
   const videoRef = useRef(null);

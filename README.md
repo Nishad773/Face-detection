@@ -141,6 +141,27 @@ The setup includes:
 - health checks for all three services
 - env-driven config
 
+## Render Deployment
+
+This repo includes [render.yaml](/D:/Main-Project/render.yaml) for a Render Blueprint deployment.
+
+On Render:
+
+1. Push the latest code to GitHub.
+2. In Render, click `New` -> `Blueprint`.
+3. Connect this repository.
+4. Render will create:
+   - `face-detection-backend` as a Docker web service
+   - `face-detection-frontend` as a static site
+   - `face-detection-db` as a Postgres database
+5. Deploy the Blueprint.
+
+Notes:
+
+- The frontend gets `VITE_BACKEND_ORIGIN` from the backend service's `RENDER_EXTERNAL_URL`.
+- The backend gets `DATABASE_URL` from the Render Postgres internal connection string.
+- Render free web services spin down on idle, so expect cold starts on hobby deployments.
+
 ## Tradeoffs
 
 - Frames are sent as base64 JSON over WebSocket, which is simple but less efficient than binary frames.
